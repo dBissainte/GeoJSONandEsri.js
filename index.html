@@ -1,4 +1,3 @@
-
 <html>
   <head>
     <meta charset="utf-8" />
@@ -20,12 +19,22 @@
     <script src="https://js.arcgis.com/4.28/"></script>
 
     <script>
-      require(["esri/config", "esri/Map", "esri/views/MapView"], function(esriConfig, Map, MapView) {
+      require([
+        "esri/config", 
+        "esri/Map", 
+        "esri/views/MapView",
+        "esri/layers/GeoJSONLayer" // Add this line
+      ], function(esriConfig, Map, MapView, GeoJSONLayer) { // Add GeoJSONLayer to the function parameters
 
         esriConfig.apiKey = "AAPK38961f69b763446a8a93074277f6c658monrdVmdEHRWTyT7kHHF_0qYVXyDdCF8RQ2Z8pUR4r52dvVz8Ytp2CV1iEQsh2yt";
 
+        const geojsonLayer = new GeoJSONLayer({
+          url: "url_to_your_geojson_filehttps://www.arcgis.com/home/item.html?id=1b8b629c54fe457bb79cf8cc4e577735" // Replace with your GeoJSON file URL
+        });
+
         const map = new Map({
-          basemap: "arcgis/topographic" // basemap styles service
+          basemap: "arcgis/topographic", // basemap styles service
+          layers: [geojsonLayer] // Add the GeoJSON layer to the map
         });
 
         const view = new MapView({
@@ -37,7 +46,6 @@
 
       });
     </script>
-
   </head>
   <body>
     <div id="viewDiv"></div>
