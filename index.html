@@ -23,25 +23,25 @@
         "esri/config", 
         "esri/Map", 
         "esri/views/MapView",
-        "esri/layers/GeoJSONLayer" // Add this line
-      ], function(esriConfig, Map, MapView, GeoJSONLayer) { // Add GeoJSONLayer to the function parameters
+        "esri/layers/GeoJSONLayer"
+      ], function(esriConfig, Map, MapView, GeoJSONLayer) {
 
         esriConfig.apiKey = "AAPK38961f69b763446a8a93074277f6c658monrdVmdEHRWTyT7kHHF_0qYVXyDdCF8RQ2Z8pUR4r52dvVz8Ytp2CV1iEQsh2yt";
 
         const geojsonLayer = new GeoJSONLayer({
-          url: "MegaCities3.geojson" // Replace with your GeoJSON file URL
+          url: "MegaCities3.geojson"
         });
 
         const map = new Map({
-          basemap: "arcgis/topographic", // basemap styles service
-          layers: [geojsonLayer] // Add the GeoJSON layer to the map
+          basemap: "topo", // Corrected basemap name
+          layers: [geojsonLayer]
         });
 
         const view = new MapView({
           map: map,
-          center: [-118.805, 34.027], // Longitude, latitude
-          zoom: 13, // Zoom level
-          container: "viewDiv" // Div element
+          center: [0,0],
+          zoom: 13,
+          container: "viewDiv"
         });
 
       });
