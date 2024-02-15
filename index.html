@@ -33,14 +33,14 @@
         });
 
         const map = new Map({
-          basemap: "topo", // Corrected basemap name
+          basemap: "streets", // Corrected basemap name
           layers: [geojsonLayer]
         });
 
         const view = new MapView({
           map: map,
           center: [0,0],
-          zoom: 13,
+          zoom: 1,
           container: "viewDiv"
         });
 
